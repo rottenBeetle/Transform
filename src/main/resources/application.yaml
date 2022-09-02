@@ -1,0 +1,21 @@
+spring:
+
+  mail:
+    host: smtp.yandex.ru
+    username: your-mail@yandex.ru
+    password:
+    port: 465
+    protocol: smtps
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+  datasource:
+    url: jdbc:postgresql://localhost:5432/transform
+    hikari:
+      username: postgres
+      password: yourpassword
+
+mail:
+  debug: true
