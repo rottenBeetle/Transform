@@ -1,0 +1,23 @@
+<div class="container">
+  <h3 class="text-center">Список пользователей</h3>
+  <div class="card">
+    <div class="card-body">
+      <div class="table">
+        <thead>
+          <th>ID</th>
+          <th>Username</th>
+          <th>Email</th>
+          <th>Active</th>
+        </thead>
+        <tbody>
+          <tr *ngFor="let user of getUsers()">
+            <td>{{user.id}}</td>
+            <td>{{user.username}}</td>
+            <td>{{user.email}}</td>
+            <td><input type="checkbox" [checked]="user.active ? true : null" disabled></td>
+          </tr>
+        </tbody>
+      </div>
+    </div>
+  </div>
+</div>
