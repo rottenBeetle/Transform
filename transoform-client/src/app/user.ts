@@ -3,6 +3,7 @@ export class User {
   username!: string;
   password!: string;
   email!: string;
+  roles: String[] = [];
   active!: boolean;
   activationCode!: string;
 }

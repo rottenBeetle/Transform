@@ -7,6 +7,7 @@
           <th>ID</th>
           <th>Username</th>
           <th>Email</th>
+          <th>Roles</th>
           <th>Active</th>
         </thead>
         <tbody>
@@ -14,6 +15,11 @@
             <td>{{user.id}}</td>
             <td>{{user.username}}</td>
             <td>{{user.email}}</td>
+            <td>
+              <p *ngFor="let role of user.roles">
+                {{role}}
+              </p>
+            </td>
             <td><input type="checkbox" [checked]="user.active ? true : null" disabled></td>
           </tr>
         </tbody>
