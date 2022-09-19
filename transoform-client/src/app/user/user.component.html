@@ -11,7 +11,20 @@
           <th>Active</th>
         </thead>
         <tbody>
-          <tr *ngFor="let user of getUsers()">
+          <tr *ngFor="let user of users; let i = index" #theLastList>
+            <div *ngIf="i+1 === users.length">
+              <td>{{user.id}}</td>
+              <td>{{user.username}}</td>
+              <td>{{user.email}}</td>
+              <td>
+                <p *ngFor="let role of user.roles">
+                  {{role}}
+                </p>
+              </td>
+              <td><input type="checkbox" [checked]="user.active ? true : null" disabled></td>
+            </div>
+
+            <div *ngIf="i+1 != users.length">
             <td>{{user.id}}</td>
             <td>{{user.username}}</td>
             <td>{{user.email}}</td>
@@ -21,6 +34,7 @@
               </p>
             </td>
             <td><input type="checkbox" [checked]="user.active ? true : null" disabled></td>
+            </div>
           </tr>
         </tbody>
       </div>
