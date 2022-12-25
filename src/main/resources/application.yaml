@@ -15,7 +15,7 @@ spring:
     url: jdbc:postgresql://localhost:5432/transform
     hikari:
       username: postgres
-      password: yourpassword
+      password: defender
 
 mail:
   debug: true

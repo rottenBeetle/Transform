@@ -1,7 +1,7 @@
 import { AfterViewInit, Component, ElementRef, OnInit, QueryList, ViewChildren } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { User } from '../user';
-import { UserService } from '../user.service';
+import { UserService } from '../service/user.service';
 import { NgxSpinnerModule, NgxSpinnerService } from "ngx-spinner";
 @Component({
   selector: 'app-user',
@@ -22,8 +22,8 @@ export class UserComponent implements OnInit, AfterViewInit {
     this.userService = userService;
   }
   ngAfterViewInit(): void {
-    this.theLastList?.changes.subscribe((d) => {
-      if (d.last) this.observer.observe(d.last.nativeElement);
+    this.theLastList?.changes.subscribe((data) => {
+      if (data.last) this.observer.observe(data.last.nativeElement);
     })
   }
 
@@ -34,11 +34,11 @@ export class UserComponent implements OnInit, AfterViewInit {
 
   getPaginatedUsers() {
     this.spinner.show();
-    this.alSub = this.userService.getAS(this.currentPage).subscribe((d) => {
+    this.alSub = this.userService.getAS(this.currentPage).subscribe((data) => {
       this.spinner.hide();
-      this.users = d.data;
-      this.totalPages = d.totalPages ;
-      d.data.forEach((element: User) => {
+      this.users = data;
+      this.totalPages = data.totalPages ;
+      data.forEach((element: User) => {
         this.users.push(element)
       });
     })
