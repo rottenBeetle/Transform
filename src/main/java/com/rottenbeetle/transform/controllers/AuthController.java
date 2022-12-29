@@ -2,7 +2,7 @@ package com.rottenbeetle.transform.controllers;
 
 import com.rottenbeetle.transform.model.Response;
 import com.rottenbeetle.transform.model.User;
-import com.rottenbeetle.transform.session.InMemorySessionRegistry;
+import com.rottenbeetle.transform.session.SessionRegistry;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -13,8 +13,8 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/api/auth")
 public class AuthController {
     private final AuthenticationManager authenticationManager;
-    private final InMemorySessionRegistry sessionRegistry;
-    public AuthController(AuthenticationManager authenticationManager, InMemorySessionRegistry sessionRegistry) {
+    private final SessionRegistry sessionRegistry;
+    public AuthController(AuthenticationManager authenticationManager, SessionRegistry sessionRegistry) {
         this.authenticationManager = authenticationManager;
         this.sessionRegistry = sessionRegistry;
     }

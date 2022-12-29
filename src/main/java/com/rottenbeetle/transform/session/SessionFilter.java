@@ -17,10 +17,10 @@ import java.io.IOException;
 
 @Component
 public class SessionFilter extends OncePerRequestFilter {
-    private  final InMemorySessionRegistry sessionRegistry;
+    private  final SessionRegistry sessionRegistry;
     private final UserServiceImpl userServiceImpl;
 
-    public SessionFilter(InMemorySessionRegistry sessionRegistry, UserServiceImpl userServiceImpl) {
+    public SessionFilter(SessionRegistry sessionRegistry, UserServiceImpl userServiceImpl) {
         this.sessionRegistry = sessionRegistry;
         this.userServiceImpl = userServiceImpl;
     }
